@@ -1,0 +1,27 @@
+h1{
+    display: flex;
+    justify-content: center ;
+    font-weight: bold;
+    font-size: 35px;
+    margin : 50px
+}
+form{
+    margin : auto;
+    max-width: 200px;
+}
+div>div{
+    margin : 20px 0px 20px 0px;
+}
+div>div>label{
+    display: flex;
+    justify-content: center ;
+    margin-bottom: 10px;
+}
+div>div>input{
+    width : 200px;
+}
+form>button{
+    display: flex;
+    justify-content: center ;
+    margin : auto;
+}

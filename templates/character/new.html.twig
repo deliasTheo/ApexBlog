@@ -1,0 +1,18 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New Characters{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/characters/newChar.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Create new Characters</h1>
+
+
+    {{ include('character/_form.html.twig') }}
+
+
+
+    <a href="{{ url('characters_index') }}">back to list</a>
+{% endblock %}

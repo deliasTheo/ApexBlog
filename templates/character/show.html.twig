@@ -1,0 +1,73 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Characters{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/characters/showChar.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Characters</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ character.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ character.nom }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ character.image }}</td>
+            </tr>
+            <tr>
+                <th>Citation</th>
+                <td>{{ character.citation }}</td>
+            </tr>
+            <tr>
+                <th>TitleDesc</th>
+                <td>{{ character.titleDesc }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ character.description }}</td>
+            </tr>
+            <tr>
+                <th>NomReel</th>
+                <td>{{ character.nomReel }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ character.Age }}</td>
+            </tr>
+            <tr>
+                <th>MondeOrigine</th>
+                <td>{{ character.mondeOrigine }}</td>
+            </tr>
+            <tr>
+                <th>CapTactique</th>
+                <td>{{ character.capTactique }}</td>
+            </tr>
+            <tr>
+                <th>CapPassive</th>
+                <td>{{ character.capPassive }}</td>
+            </tr>
+            <tr>
+                <th>CapUltime</th>
+                <td>{{ character.capUltime }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <a href="{{ url('characters_index') }}">back to list</a>
+
+        <a href="{{ url('characters_edit', {'id': character.id}) }}">edit</a>
+
+        {{ include('character/_delete_form.html.twig') }}
+    </div>
+
+{% endblock %}

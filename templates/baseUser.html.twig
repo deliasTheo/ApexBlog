@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
+
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li> <a href="{{url("home")}}" class="textNav">Home</a> </li>
+                <li> <a href="{{url("world_record")}}" class="textNav">Worlds Records</a> </li>
+                <li> <a href="{{url("news")}}" class="textNav">News</a> </li>
+                <li> <a href="{{url("wiki")}}" class="textNav">Wiki</a> </li>
+                <li> <a href="{{url("fun_video")}}" class="textNav">Fun video</a> </li>
+                <li> <a href="{{url("tags")}}" class="textNav">Tags</a> </li>
+                <li> <a href="{{url("contact")}}" class="textNav">Contact</a> </li>
+                {% if app.user %}
+                    <li> <a href="{{url("logout")}}" class="textNav">Me déconnecter</a> </li>
+                {% else %}
+                    <li> <a href="{{url("app_login")}}" class="textNav">Me connecter</a> </li>
+                    <li> <a href="{{url("app_register")}}" class="textNav">S'inscrire</a> </li>
+                {% endif %}
+
+                {% if app.user and is_granted('ROLE_ADMIN') %}
+                    {% if not app.request.get('_route') is same as 'admin' %}
+                        <li> <a href="{{url("admin")}}" class="textNav">Interface admin</a> </li>
+                    {% else %}
+                        <li> <a href="{{url("home")}}" class="textNav">Interface user</a> </li>
+                    {% endif %}
+                {% endif %}
+
+            </ul>
+        </nav>
+
+        {% block body %}
+
+        {% endblock %}
+    </body>
+
+</html>

@@ -1,0 +1,14 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block title %}Hello in tags{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/button.css') }}">
+{% endblock %}
+
+
+{% block body %}
+    {{ render(controller(
+        'App\\Controller\\SearchBatController::searchBar'
+    )) }}
+{% endblock %}

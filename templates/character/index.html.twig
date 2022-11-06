@@ -1,0 +1,62 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Characters index{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/characters/indexTable.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Characters index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Image</th>
+                <th>Citation</th>
+                <th>TitleDesc</th>
+                <th>Description</th>
+                <th>NomReel</th>
+                <th>Age</th>
+                <th>MondeOrigine</th>
+                <th>CapTactique</th>
+                <th>CapPassive</th>
+                <th>CapUltime</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for character in characters %}
+            <tr>
+                <td>{{ character.id }}</td>
+                <td>{{ character.nom }}</td>
+                <td>{{ character.image }}</td>
+                <td>{{ character.citation }}</td>
+                <td>{{ character.titleDesc }}</td>
+                <td id="muchTall">{{ character.description }}</td>
+                <td>{{ character.nomReel }}</td>
+                <td>{{ character.Age }}</td>
+                <td>{{ character.mondeOrigine }}</td>
+                <td>{{ character.capTactique }}</td>
+                <td>{{ character.capPassive }}</td>
+                <td>{{ character.capUltime }}</td>
+                <td id="tdColumn">
+                    <a href="{{ url('characters_show', {'id': character.id}) }}">show</a>
+                    <a href="{{ url('characters_edit', {'id': character.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url('characters_new') }}" id="buttonCreate">
+        <button>Create new</button>
+    </a>
+
+{% endblock %}

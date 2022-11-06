@@ -1,0 +1,41 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/wiki.css') }}">
+{% endblock %}
+
+
+{% block title %}Hello in wiki{% endblock %}
+
+{% block body %}
+
+    {% for article in caracters %}
+        <article>
+            <div id="partLeft">
+                <img src="{{ asset(article.getImage) | imagine_filter('perso') }}" alt="Bangalore" id="caracterePicture"/>
+                <h2>"{{ article.getCitation }}"</h2>
+            </div>
+
+            <div id="partRight">
+                <h1>{{ article.getNom }}</h1>
+
+                <h3>{{ article.getTitleDesc }}</h3>
+                <p>{{ article.getDescription }}</p>
+
+                <br>
+                <h4> Nom réel :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ article.getNomReel }}</h4>
+                <h4> Âge :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ article.getNomReel }}</h4>
+                <h4> Monde d'origine :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ article.getMondeOrigine }}</h4>
+                <h4> Capacité tactique :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ article.getCapTactique }}</h4>
+                <h4> Capacité passive :&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ article.getCapPassive }}</h4>
+                <h4> Capacité ultime : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ article.getCapUltime }}</h4>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+        </article>
+    {% endfor %}
+
+{% endblock %}

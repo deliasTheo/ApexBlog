@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Hello TDAdminController!{% endblock %}
+
+{% block body %}
+    <h1>Create new Category</h1>
+
+    {{ include('td_category/_form.html.twig') }}
+
+    <a href="{{ path('t_d_category_index') }}">back to list</a>
+{% endblock %}

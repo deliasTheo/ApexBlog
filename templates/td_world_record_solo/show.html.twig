@@ -1,0 +1,42 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Hello TDHomeController!{% endblock %}
+
+{% block body %}
+    <h1>WorldRecordSolo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ world_record_solo.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ world_record_solo.date ? world_record_solo.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Player</th>
+                <td>{{ world_record_solo.player }}</td>
+            </tr>
+            <tr>
+                <th>Kills</th>
+                <td>{{ world_record_solo.kills }}</td>
+            </tr>
+            <tr>
+                <th>Legend</th>
+                <td>{{ world_record_solo.legend }}</td>
+            </tr>
+            <tr>
+                <th>Video</th>
+                <td>{{ world_record_solo.video | raw }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_d_world_record_solo_index') }}">back to list</a>
+
+    <a href="{{ path('t_d_world_record_solo_edit', {'id': world_record_solo.id}) }}">edit</a>
+
+    {{ include('td_world_record_solo/_delete_form.html.twig') }}
+{% endblock %}

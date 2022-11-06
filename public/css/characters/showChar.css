@@ -1,0 +1,28 @@
+h1{
+    display: flex;
+    justify-content: center ;
+    font-weight: bold;
+    font-size: 35px;
+    margin : 50px
+}
+.table{
+    width : 80%;
+    margin : auto;
+}
+th{
+    padding-right : 30px;
+}
+tr{
+    height : 30px
+}
+a{
+    display: flex;
+    justify-content: center;
+    margin-bottom : 5px;
+    text-decoration : none;
+}
+button{
+    display: flex;
+    justify-content: center;
+    margin : auto;
+}

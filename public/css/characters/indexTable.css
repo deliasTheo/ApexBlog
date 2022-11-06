@@ -1,0 +1,51 @@
+h1{
+    display: flex;
+    justify-content: center ;
+    font-weight: bold;
+    font-size: 35px;
+    margin : 50px
+}
+
+table{
+    display: flex;
+    margin : 30px;
+    flex-direction: column;
+}
+tr{
+    display: flex;
+    justify-content: center ;
+    margin-bottom: 30px;
+}
+th,td{
+    display: flex;
+    justify-content: center ;
+    align-items: center ;
+    width: 8%;
+
+    max-height: 100px;
+}
+#tdColumn{
+    flex-direction: column;
+
+}
+#muchTall{
+    align-items: baseline ;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#buttonCreate{
+    display: flex;
+    justify-content: center ;
+    text-decoration: none;
+}
+button{
+    background-color : black;
+    color : white;
+    width : 10%;
+    height: 100px;
+    font-size: 20px;
+    font-weight: bold;
+}
+button:hover{
+    color : #a92929;
+}

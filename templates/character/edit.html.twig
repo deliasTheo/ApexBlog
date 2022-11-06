@@ -1,0 +1,17 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit Characters{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/characters/editChar.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Characters</h1>
+
+    {{ include('character/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ url('characters_index') }}">back to list</a>
+
+    {{ include('character/_delete_form.html.twig') }}
+{% endblock %}

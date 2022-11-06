@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Hello TDHomeController!{% endblock %}
+
+{% block body %}
+    <h1>WorldRecordSolo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Player</th>
+                <th>Kills</th>
+                <th>Legend</th>
+                <th>Video</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for world_record_solo in world_record_solos %}
+            <tr>
+                <td>{{ world_record_solo.id }}</td>
+                <td>{{ world_record_solo.date ? world_record_solo.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ world_record_solo.player }}</td>
+                <td>{{ world_record_solo.kills }}</td>
+                <td>{{ world_record_solo.legend }}</td>
+                <iframe width="200" height="200" src="{{ world_record_solo.getVideo  }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <td>
+                    <a href="{{ path('t_d_world_record_solo_show', {'id': world_record_solo.id}) }}">show</a>
+                    <a href="{{ path('t_d_world_record_solo_edit', {'id': world_record_solo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('t_d_world_record_solo_new') }}">Create new</a>
+{% endblock %}
